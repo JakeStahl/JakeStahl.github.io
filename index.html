@@ -15,37 +15,28 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- LAYOUT TOGGLE BUTTON -->
+    <button
+      id="layout-toggle"
+      class="comic-btn red layout-toggle-btn"
+      onclick="toggleLayout()"
+    >
+      📱 VERTICAL VIEW
+    </button>
+
     <div class="book-wrapper">
       <!-- SPREAD 1: COVER, INTRO & SKILLS -->
       <div class="spread active" id="spread-1">
-        <div class="page page-left" style="background: var(--comic-yellow)">
-          <div class="speech-bubble" style="margin-bottom: 12px">ISSUE #1</div>
-          <h1
-            id="about-title-prefix"
-            style="font-size: 3.2rem; line-height: 0.95"
-          ></h1>
-          <h1
-            id="about-name"
-            style="
-              font-size: 4.2rem;
-              color: var(--comic-red);
-              line-height: 0.95;
-            "
-          ></h1>
-          <p
-            id="about-role"
-            style="font-size: 1.2rem; font-weight: 800; margin-top: 16px"
-          >
-            SOFTWARE DEVELOPER
-          </p>
-          <p
-            id="about-bio"
-            style="font-weight: 600; margin-top: 12px; line-height: 1.4"
-          >
+        <div class="page page-left page-yellow">
+          <div class="speech-bubble speech-bubble-margin">ISSUE #1</div>
+          <h1 id="about-title-prefix" class="about-prefix-heading"></h1>
+          <h1 id="about-name" class="about-name-heading"></h1>
+          <p id="about-role" class="about-role-text">SOFTWARE DEVELOPER</p>
+          <p id="about-bio" class="about-bio-text">
             Building games, web applications, and interactive experiences.
             Scroll down or click next to turn the page!
           </p>
-          <div style="margin-top: 24px">
+          <div class="about-cta-container">
             <a
               id="about-resume"
               href="./resume.pdf"
@@ -58,14 +49,11 @@
 
         <div class="page page-right">
           <!-- PERSONALITY BITS -->
-          <h2 style="font-size: 2rem; margin-bottom: 12px">PERSONALITY BITS</h2>
+          <h2 class="section-title mb-12">PERSONALITY BITS</h2>
           <div class="panel-wrapper shape-banner color-yellow pattern-dots">
             <div class="comic-panel-frame">
               <div class="comic-card-content">
-                <div
-                  id="personality-tags"
-                  style="display: flex; flex-wrap: wrap; gap: 8px"
-                >
+                <div id="personality-tags" class="personality-tags-flex">
                   <!-- Populated from About.json -->
                 </div>
               </div>
@@ -73,9 +61,7 @@
           </div>
 
           <!-- SKILLS SECTION -->
-          <h2 style="font-size: 2rem; margin-top: 24px; margin-bottom: 12px">
-            SUPERPOWERS & SKILLS
-          </h2>
+          <h2 class="section-title mt-24 mb-12">SUPERPOWERS & SKILLS</h2>
           <div class="panel-wrapper shape-slant-right color-blue pattern-grid">
             <div class="comic-panel-frame">
               <div class="comic-card-content" id="skills-container">
@@ -94,27 +80,17 @@
       <!-- LAST SPREAD: EXPERIENCE & STATS -->
       <div class="spread" id="spread-experience">
         <div class="page page-left">
-          <h2 style="font-size: 2.2rem; color: var(--comic-blue)">
-            EXPERIENCE & WORK
-          </h2>
-          <p style="font-weight: 600; margin-top: 10px">
+          <h2 class="section-heading-blue">EXPERIENCE & WORK</h2>
+          <p class="section-subtitle">
             Quantitative proof of technical competency.
           </p>
-          <div id="experience-container" style="margin-top: 20px">
+          <div id="experience-container" class="mt-20">
             <!-- Populated from Experience.json -->
           </div>
         </div>
 
         <div class="page page-right" id="stats-container">
-          <h2
-            style="
-              font-size: 2.2rem;
-              color: var(--comic-red);
-              margin-bottom: 12px;
-            "
-          >
-            LIVE STATS
-          </h2>
+          <h2 class="section-heading-red mb-12">LIVE STATS</h2>
 
           <!-- LEETCODE CARD -->
           <div
@@ -122,47 +98,21 @@
           >
             <div class="comic-panel-frame">
               <div class="comic-card-content">
-                <p style="font-weight: 800; font-size: 0.9rem; margin: 0">
-                  LEETCODE (@jake-stahl)
-                </p>
-                <div
-                  style="
-                    display: flex;
-                    align-items: baseline;
-                    gap: 12px;
-                    margin-top: 4px;
-                  "
-                >
-                  <p
-                    id="lc-solved"
-                    class="comic-font"
-                    style="font-size: 2.8rem; margin: 0; line-height: 1"
-                  >
+                <p class="card-header-label">LEETCODE (@jake-stahl)</p>
+                <div class="stat-main-row">
+                  <p id="lc-solved" class="comic-font stat-number-display">
                     13
                   </p>
-                  <p
-                    style="font-size: 0.85rem; color: #64748b; font-weight: 700"
-                  >
-                    Problems Solved
-                  </p>
+                  <p class="stat-label-muted">Problems Solved</p>
                 </div>
-                <div
-                  id="lc-breakdown"
-                  style="
-                    display: flex;
-                    gap: 10px;
-                    margin-top: 6px;
-                    font-size: 0.8rem;
-                    font-weight: 700;
-                  "
-                >
-                  <span style="color: #10b981"
+                <div id="lc-breakdown" class="lc-breakdown-row">
+                  <span class="text-easy"
                     >Easy: <span id="lc-easy">10</span></span
                   >
-                  <span style="color: #f59e0b"
+                  <span class="text-medium"
                     >Med: <span id="lc-medium">3</span></span
                   >
-                  <span style="color: #ef4444"
+                  <span class="text-hard"
                     >Hard: <span id="lc-hard">0</span></span
                   >
                 </div>
@@ -174,34 +124,14 @@
           <div class="panel-wrapper shape-skew-left color-red pattern-stripes">
             <div class="comic-panel-frame">
               <div class="comic-card-content">
-                <p
-                  style="font-weight: 800; font-size: 0.9rem; margin: 0 0 4px 0"
-                >
-                  ITCH.IO (@new-legacy)
-                </p>
-                <div style="display: flex; align-items: baseline; gap: 12px">
-                  <p
-                    id="itch-count"
-                    class="comic-font"
-                    style="font-size: 2.8rem; margin: 0; line-height: 1"
-                  >
+                <p class="card-header-label mb-4">ITCH.IO (@new-legacy)</p>
+                <div class="stat-main-row">
+                  <p id="itch-count" class="comic-font stat-number-display">
                     3
                   </p>
-                  <p
-                    style="font-size: 0.85rem; color: #64748b; font-weight: 700"
-                  >
-                    Published Games
-                  </p>
+                  <p class="stat-label-muted">Published Games</p>
                 </div>
-                <p
-                  id="itch-games-list"
-                  style="
-                    font-weight: 600;
-                    font-size: 0.8rem;
-                    margin-top: 6px;
-                    color: #4b5563;
-                  "
-                >
+                <p id="itch-games-list" class="stat-detail-dark mt-6">
                   👁️ <span id="itch-total-views">843</span> Views • 📥
                   <span id="itch-total-downloads">211</span> Downloads
                 </p>
@@ -213,26 +143,9 @@
           <div class="panel-wrapper shape-wedge color-green pattern-halftone">
             <div class="comic-panel-frame">
               <div class="comic-card-content">
-                <p
-                  style="font-weight: 800; font-size: 0.9rem; margin: 0 0 4px 0"
-                >
-                  HACKERRANK (@jakestahl24)
-                </p>
-                <p
-                  id="hr-status"
-                  style="font-weight: 700; font-size: 0.9rem; margin: 0"
-                >
-                  Profile Active 🇦🇺
-                </p>
-                <p
-                  id="hr-badges"
-                  style="
-                    font-weight: 600;
-                    font-size: 0.8rem;
-                    margin-top: 4px;
-                    color: #64748b;
-                  "
-                >
+                <p class="card-header-label mb-4">HACKERRANK (@jakestahl24)</p>
+                <p id="hr-status" class="hr-status-text">Profile Active 🇦🇺</p>
+                <p id="hr-badges" class="stat-detail-muted mt-4">
                   Verified Developer
                 </p>
               </div>
@@ -251,6 +164,22 @@
     <script>
       const ITCH_API_KEY = "Oyxm11NSiPuaz5OEqkCyayRDr7oWf6lCw5RylPcc";
 
+      // --- LAYOUT TOGGLE SCRIPT ---
+      let isVerticalMode = false;
+
+      function toggleLayout() {
+        isVerticalMode = !isVerticalMode;
+        const btn = document.getElementById("layout-toggle");
+
+        if (isVerticalMode) {
+          document.body.classList.add("vertical-mode");
+          btn.innerText = "📖 COMIC BOOK VIEW";
+        } else {
+          document.body.classList.remove("vertical-mode");
+          btn.innerText = "📱 VERTICAL VIEW";
+        }
+      }
+
       // --- PAGE NAVIGATION SCRIPT ---
       let currentSpread = 1;
       let totalSpreads = 2;
@@ -265,6 +194,8 @@
       }
 
       function changeSpread(direction) {
+        if (isVerticalMode) return; // Disable spread flipping in vertical scroll mode
+
         const nextSpread = currentSpread + direction;
         if (nextSpread < 1 || nextSpread > totalSpreads) return;
 
@@ -278,6 +209,7 @@
       }
 
       document.addEventListener("keydown", (e) => {
+        if (isVerticalMode) return;
         if (e.key === "ArrowRight") changeSpread(1);
         if (e.key === "ArrowLeft") changeSpread(-1);
       });
@@ -285,7 +217,7 @@
       document.addEventListener(
         "wheel",
         (e) => {
-          if (isScrolling) return;
+          if (isScrolling || isVerticalMode) return;
 
           if (e.deltaY > 30) {
             changeSpread(1);
@@ -418,8 +350,7 @@
               document.getElementById("personality-tags").innerHTML =
                 about.badges
                   .map(
-                    (badge) =>
-                      `<span class="tag" style="font-size: 0.95rem">${badge}</span>`,
+                    (badge) => `<span class="tag tag-medium">${badge}</span>`,
                   )
                   .join("");
             }
@@ -433,12 +364,12 @@
             Object.keys(skills).forEach((category) => {
               const skillList = skills[category];
               skillsContainer.innerHTML += `
-                <div style="margin-bottom: 12px;">
-                  <p style="font-weight: 800; font-size: 0.9rem; margin-bottom: 6px; color: var(--comic-red, #e11d48); letter-spacing: 0.05em;">
+                <div class="skill-group">
+                  <p class="skill-category-label">
                     ${category.toUpperCase()}
                   </p>
-                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-                    ${skillList.map((skill) => `<span class="tag" style="font-size: 0.85rem">${skill}</span>`).join("")}
+                  <div class="skill-tags-flex">
+                    ${skillList.map((skill) => `<span class="tag tag-small">${skill}</span>`).join("")}
                   </div>
                 </div>
               `;
@@ -504,21 +435,21 @@
                 let statsBadgeHtml = "";
                 if (itchData) {
                   statsBadgeHtml = `
-                    <div style="font-size: 0.8rem; font-weight: 800; color: var(--comic-red, #e11d48); margin-top: 6px; display: flex; gap: 12px;">
+                    <div class="project-stats-itch">
                       <span>👁️ ${itchData.views} Views</span>
                       <span>📥 ${itchData.downloads} Downloads</span>
                     </div>
                   `;
                 } else if (proj.status) {
                   statsBadgeHtml = `
-                    <div style="font-size: 0.8rem; font-weight: 800; color: #2563eb; margin-top: 6px;">
+                    <div class="project-stats-status">
                       🚀 ${proj.status}
                     </div>
                   `;
                 }
 
                 const actionButton = proj.liveUrl
-                  ? `<a href="${proj.liveUrl}" target="_blank" class="comic-btn red" style="display:inline-block; margin-top:8px; padding: 4px 10px; font-size:0.75rem;">VIEW ON ITCH.IO</a>`
+                  ? `<a href="${proj.liveUrl}" target="_blank" class="comic-btn red project-action-btn">VIEW ON ITCH.IO</a>`
                   : "";
 
                 return `
@@ -526,11 +457,11 @@
                     <div class="comic-panel-frame">
                       <div class="comic-card-content">
                         <div>
-                          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">${proj.title}</h3>
-                          <p style="font-size: 0.85rem; font-weight: 500; line-height: 1.3;">${proj.description}</p>
+                          <h3 class="card-title">${proj.title}</h3>
+                          <p class="card-description">${proj.description}</p>
                           ${statsBadgeHtml}
                         </div>
-                        <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="card-footer">
                           <div>${tagsHtml}</div>
                           ${actionButton}
                         </div>
@@ -543,8 +474,8 @@
               const spreadHtml = `
                 <div class="spread">
                   <div class="page page-left">
-                    <h2 style="font-size: 2.2rem; margin-bottom: 4px;">${s === 0 ? "PROJECTS" : "PROJECTS (CONT.)"}</h2>
-                    <p style="font-size: 1rem; font-weight: 600; color: #4b5563;">
+                    <h2 class="project-spread-title">${s === 0 ? "PROJECTS" : "PROJECTS (CONT.)"}</h2>
+                    <p class="project-spread-subtitle">
                       ${s === 0 ? "Fun projects I've created in my spare time." : "More created works & experiments."}
                     </p>
                     <div class="projects-column">
@@ -580,12 +511,12 @@
               expContainer.innerHTML = expData
                 .map(
                   (exp, i) => `
-                <div class="panel-wrapper shape-slant-right ${colors[i % colors.length]} ${patterns[i % patterns.length]}" style="margin-bottom: 12px;">
+                <div class="panel-wrapper shape-slant-right ${colors[i % colors.length]} ${patterns[i % patterns.length]} mb-12">
                   <div class="comic-panel-frame">
                     <div class="comic-card-content">
-                      <h3 style="font-size: 1.1rem">${exp.role} @ ${exp.company}</h3>
-                      <p style="font-size: 0.8rem; color: #64748b; font-weight: 600">${exp.period}</p>
-                      <ul style="margin-top: 6px; padding-left: 16px; font-size: 0.85rem">
+                      <h3 class="exp-title">${exp.role} @ ${exp.company}</h3>
+                      <p class="exp-period">${exp.period}</p>
+                      <ul class="exp-highlights-list">
                         ${(exp.highlights || []).map((h) => `<li>${h}</li>`).join("")}
                       </ul>
                     </div>

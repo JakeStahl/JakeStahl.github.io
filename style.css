@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. CSS VARIABLES & BASE STYLES
+   ========================================================================== */
 :root {
   --comic-yellow: #fde047;
   --comic-red: #e11d48;
@@ -32,7 +35,9 @@ h3 {
   letter-spacing: 0.05em;
 }
 
-/* BOOK & SPREAD LAYOUT */
+/* ==========================================================================
+   2. BOOK & PAGE SPREAD LAYOUT
+   ========================================================================== */
 .book-wrapper {
   position: relative;
   width: 95vw;
@@ -41,7 +46,7 @@ h3 {
   max-height: 950px;
   background: var(--comic-dark);
   border: 4px solid var(--comic-dark);
-  border-radius: 0px;
+  border-radius: 0;
   box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.35);
 }
 
@@ -51,7 +56,7 @@ h3 {
   height: 100%;
   grid-template-columns: 1fr 1fr;
   background: white;
-  border-radius: 0px;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -59,7 +64,6 @@ h3 {
   display: grid;
 }
 
-/* PAGE LAYOUT */
 .page {
   display: flex;
   flex-direction: column;
@@ -76,36 +80,13 @@ h3 {
   border-right: 4px solid var(--comic-dark);
 }
 
-/* FULL-HEIGHT FLEX LAYOUT FOR PROJECTS */
-.projects-column {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 16px;
-  margin-top: 12px;
+.page-yellow {
+  background: var(--comic-yellow, #fde047);
 }
 
-.projects-column .panel-wrapper {
-  flex: 1;
-  display: flex;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-.projects-column .comic-panel-frame {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.projects-column .comic-card-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* COMIC PANELS & FRAMES */
+/* ==========================================================================
+   3. COMIC PANELS & CARDS
+   ========================================================================== */
 .panel-wrapper {
   position: relative;
   margin-bottom: 16px;
@@ -114,33 +95,6 @@ h3 {
   cursor: pointer;
 }
 
-.comic-panel-frame {
-  background-color: white;
-  border: 4px solid var(--comic-dark);
-  border-radius: 0px;
-  padding: 16px;
-  box-shadow: 5px 5px 0px var(--comic-dark);
-  transition: box-shadow 0.25s ease;
-}
-
-/* PANEL SHAPES */
-.shape-slant-right {
-  transform: rotate(0.4deg);
-}
-
-.shape-skew-left {
-  transform: rotate(-0.4deg);
-}
-
-.shape-wedge {
-  transform: rotate(0.3deg);
-}
-
-.shape-banner {
-  transform: rotate(-0.3deg);
-}
-
-/* HOVER & POP-OUT EFFECTS */
 .panel-wrapper:hover {
   transform: scale(1.02) translate(-3px, -3px);
   z-index: 10;
@@ -150,79 +104,30 @@ h3 {
   box-shadow: 8px 8px 0px var(--comic-dark);
 }
 
-/* TAGS & BUTTONS */
-.tag {
-  display: inline-block;
-  background: #f1f5f9;
-  border: 2px solid var(--comic-dark);
-  border-radius: 0px;
-  padding: 3px 10px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  margin-right: 6px;
-  margin-top: 6px;
+.comic-panel-frame {
+  background-color: white;
+  border: 4px solid var(--comic-dark);
+  border-radius: 0;
+  padding: 16px;
+  box-shadow: 5px 5px 0px var(--comic-dark);
+  transition: box-shadow 0.25s ease;
 }
 
-.comic-btn {
-  display: inline-block;
-  font-family: "Bangers", cursive;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: white;
-  background: var(--comic-red);
-  border: 3px solid var(--comic-dark);
-  border-radius: 0px;
-  box-shadow: 4px 4px 0px var(--comic-dark);
-  transition: transform 0.1s ease;
+/* Panel Transforms */
+.shape-slant-right {
+  transform: rotate(0.4deg);
+}
+.shape-skew-left {
+  transform: rotate(-0.4deg);
+}
+.shape-wedge {
+  transform: rotate(0.3deg);
+}
+.shape-banner {
+  transform: rotate(-0.3deg);
 }
 
-.comic-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--comic-dark);
-}
-
-/* SPEECH BUBBLE */
-.speech-bubble {
-  position: relative;
-  background: white;
-  border: 3px solid var(--comic-dark);
-  border-radius: 0px;
-  padding: 6px 14px;
-  display: inline-block;
-  font-family: "Bangers", cursive;
-  font-size: 1.1rem;
-}
-
-/* NAVIGATION BUTTONS */
-.nav-btn {
-  position: absolute;
-  bottom: 16px;
-  z-index: 20;
-  font-family: "Bangers", cursive;
-  font-size: 1.2rem;
-  padding: 8px 18px;
-  background: var(--comic-yellow);
-  border: 3px solid var(--comic-dark);
-  border-radius: 0px;
-  box-shadow: 4px 4px 0px var(--comic-dark);
-  cursor: pointer;
-}
-
-.nav-prev {
-  left: 20px;
-}
-
-.nav-next {
-  right: 20px;
-}
-
-.nav-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--comic-dark);
-}
-
-/* VIBRANT PANEL COLOR VARIATIONS */
+/* Vibrant Color Variations */
 .panel-wrapper.color-purple .comic-panel-frame {
   background-color: #f3e8ff;
   border-color: #9333ea;
@@ -267,14 +172,125 @@ h3 {
 .panel-wrapper.color-yellow p.card-title {
   color: #b45309;
 }
-/* Page Colors & Utilities */
-.page-yellow {
-  background: var(--comic-yellow, #fde047);
+
+/* Full-Height Flex Column (Projects) */
+.projects-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 16px;
+  margin-top: 12px;
 }
 
-.speech-bubble-margin {
-  margin-bottom: 12px;
+.projects-column .panel-wrapper {
+  flex: 1;
+  display: flex;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
+
+.projects-column .comic-panel-frame {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-column .comic-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   4. UI COMPONENTS (BUTTONS, TAGS, BUBBLES)
+   ========================================================================== */
+.tag {
+  display: inline-block;
+  background: #f1f5f9;
+  border: 2px solid var(--comic-dark);
+  border-radius: 0;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+.tag-medium {
+  font-size: 0.95rem;
+}
+.tag-small {
+  font-size: 0.85rem;
+}
+
+.comic-btn {
+  display: inline-block;
+  font-family: "Bangers", cursive;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  background: var(--comic-red);
+  border: 3px solid var(--comic-dark);
+  border-radius: 0;
+  box-shadow: 4px 4px 0px var(--comic-dark);
+  transition: transform 0.1s ease;
+}
+
+.comic-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--comic-dark);
+}
+
+.speech-bubble {
+  position: relative;
+  background: white;
+  border: 3px solid var(--comic-dark);
+  border-radius: 0;
+  padding: 6px 14px;
+  display: inline-block;
+  font-family: "Bangers", cursive;
+  font-size: 1.1rem;
+}
+
+.nav-btn {
+  position: absolute;
+  bottom: 16px;
+  z-index: 20;
+  font-family: "Bangers", cursive;
+  font-size: 1.2rem;
+  padding: 8px 18px;
+  background: var(--comic-yellow);
+  border: 3px solid var(--comic-dark);
+  border-radius: 0;
+  box-shadow: 4px 4px 0px var(--comic-dark);
+  cursor: pointer;
+}
+
+.nav-prev {
+  left: 20px;
+}
+.nav-next {
+  right: 20px;
+}
+
+.nav-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--comic-dark);
+}
+
+.layout-toggle-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   5. CONTENT & SECTION TYPOGRAPHY
+   ========================================================================== */
 .about-prefix-heading {
   font-size: 3.2rem;
   line-height: 0.95;
@@ -319,12 +335,6 @@ h3 {
   flex-wrap: wrap;
   gap: 8px;
 }
-.tag-medium {
-  font-size: 0.95rem;
-}
-.tag-small {
-  font-size: 0.85rem;
-}
 
 .skill-group {
   margin-bottom: 12px;
@@ -342,7 +352,6 @@ h3 {
   gap: 6px;
 }
 
-/* Dynamic Card Colors & Typography */
 .card-title {
   font-size: 1.2rem;
   margin-bottom: 4px;
@@ -459,6 +468,10 @@ h3 {
   color: #64748b;
 }
 
+/* Utilities */
+.speech-bubble-margin {
+  margin-bottom: 12px;
+}
 .mb-4 {
   margin-bottom: 4px;
 }
@@ -476,4 +489,161 @@ h3 {
 }
 .mt-24 {
   margin-top: 24px;
+}
+
+/* ==========================================================================
+   6. VERTICAL LAYOUT MODE OVERRIDES
+   ========================================================================== */
+body.vertical-mode {
+  overflow-y: auto !important;
+  background-color: #f3f4f6;
+  background-image: radial-gradient(#d1d5db 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  padding: 40px 16px;
+}
+
+/* Single unified wrapper with one outer border */
+body.vertical-mode .book-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  max-width: 900px;
+  margin: 0 auto;
+  height: auto !important;
+  max-height: none !important;
+  background: white !important;
+  border: 4px solid var(--comic-dark) !important;
+  box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Remove gaps/margins between spread containers */
+body.vertical-mode .spread,
+body.vertical-mode #projects-spreads-container,
+body.vertical-mode #projects-spreads-container .spread {
+  display: flex !important;
+  flex-direction: column !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  height: auto !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Force pages to sit flush against each other */
+body.vertical-mode .page {
+  display: block !important;
+  width: 100% !important;
+  min-height: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 12px 28px !important; /* Reduced vertical padding to prevent blank spaces */
+}
+
+/* Top-most page handles top padding, bottom-most handles bottom padding */
+body.vertical-mode .spread:first-child .page-left {
+  padding-top: 28px !important;
+}
+
+body.vertical-mode .spread:last-child .page-right {
+  padding-bottom: 28px !important;
+}
+
+body.vertical-mode .page-left,
+body.vertical-mode .page-right {
+  position: relative !important;
+  width: 100% !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+body.vertical-mode .nav-btn {
+  display: none !important;
+}
+/* ==========================================================================
+   7. MOBILE AUTO-VERTICAL LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto !important;
+    background-color: #f3f4f6;
+    background-image: radial-gradient(#d1d5db 1.5px, transparent 1.5px);
+    background-size: 16px 16px;
+    padding: 20px 12px;
+  }
+
+  .book-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    background: white !important;
+    border: 4px solid var(--comic-dark) !important;
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .spread,
+  #projects-spreads-container,
+  #projects-spreads-container .spread {
+    display: flex !important;
+    flex-direction: column !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    height: auto !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .page {
+    display: block !important;
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 16px 16px !important;
+  }
+
+  .page-left,
+  .page-right {
+    position: relative !important;
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+
+  /* Hide navigation controls on mobile */
+  .nav-btn,
+  .layout-toggle-btn {
+    display: none !important;
+  }
 }
