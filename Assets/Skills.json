@@ -1,0 +1,5 @@
+{
+  "languages": ["HTML5", "CSS3", "c#"],
+  "frameworks": ["React", "Node.js", "Expo"],
+  "tools": ["Git", "VS Code", "Figma"]
+}

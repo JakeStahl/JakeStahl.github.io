@@ -1,223 +1,220 @@
-/* ==========================================================================
-   1. COLOR PALETTE & GLOBAL VARIABLES
-   ========================================================================== */
 :root {
-  --comic-yellow: #f7eb5e;
-  --comic-red: #ff3b30;
-  --comic-blue: #38bdf8;
-  --comic-purple: #c084fc;
-  --comic-green: #4ade80;
-  --comic-bg: #f5f0e6;
-  --comic-dark: #000000;
-  --comic-white: #ffffff;
+  --comic-yellow: #fde047;
+  --comic-red: #e11d48;
+  --comic-blue: #2563eb;
+  --comic-dark: #0f172a;
+  --comic-bg: #f8fafc;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   font-family: "Inter", sans-serif;
-  color: var(--comic-dark);
-  background-color: var(--comic-bg);
-  background-image: radial-gradient(#d3c5ad 20%, transparent 20%);
+  background-color: #f3f4f6;
+  background-image: radial-gradient(#d1d5db 1.5px, transparent 1.5px);
   background-size: 16px 16px;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
+.comic-font,
 h1,
 h2,
-h3,
-.comic-font {
+h3 {
   font-family: "Bangers", cursive;
-  letter-spacing: 1px;
-  margin: 0;
+  letter-spacing: 0.05em;
 }
 
-/* ==========================================================================
-   2. TWO-PAGE BOOK CONTAINER & SPREADS
-   ========================================================================== */
+/* BOOK & SPREAD LAYOUT */
 .book-wrapper {
-  width: 95vw;
-  max-width: 1100px;
-  height: 85vh;
-  min-height: 600px;
-  background: var(--comic-dark);
-  border: 6px solid var(--comic-dark);
-  border-radius: 12px;
-  box-shadow: 12px 12px 0px var(--comic-dark);
   position: relative;
-  overflow: hidden;
+  width: 95vw;
+  max-width: 1300px;
+  height: 94vh;
+  max-height: 950px;
+  background: var(--comic-dark);
+  border: 4px solid var(--comic-dark);
+  border-radius: 0px;
+  box-shadow: 0 25px 35px -5px rgba(0, 0, 0, 0.35);
 }
 
 .spread {
-  display: flex;
+  display: none;
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 0.4s ease-in-out,
-    transform 0.4s ease-in-out;
-  transform: scale(0.98);
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border-radius: 0px;
+  overflow: hidden;
 }
 
 .spread.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
+  display: grid;
 }
 
+/* PAGE LAYOUT */
 .page {
-  flex: 1;
-  background: var(--comic-white);
-  padding: 32px;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 28px 28px 75px 28px;
+  background: white;
   position: relative;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .page-left {
   border-right: 4px solid var(--comic-dark);
 }
 
-/* ==========================================================================
-   3. SHAPED COMIC PANELS (SOLID OUTLINES & SHADOWS)
-   ========================================================================== */
-.panel-wrapper {
-  filter: drop-shadow(4px 4px 0px var(--comic-dark));
-  margin-bottom: 20px;
-  transition: transform 0.15s ease-in-out;
+/* FULL-HEIGHT FLEX LAYOUT FOR PROJECTS */
+.projects-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 16px;
+  margin-top: 12px;
 }
 
-.panel-wrapper:hover {
-  transform: translate(-2px, -2px);
+.projects-column .panel-wrapper {
+  flex: 1;
+  display: flex;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.projects-column .comic-panel-frame {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-column .comic-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* COMIC PANELS & FRAMES */
+.panel-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+  cursor: pointer;
 }
 
 .comic-panel-frame {
-  background-color: var(--comic-dark);
-  padding: 3.5px;
-  width: 100%;
+  background-color: white;
+  border: 4px solid var(--comic-dark);
+  border-radius: 0px;
+  padding: 16px;
+  box-shadow: 5px 5px 0px var(--comic-dark);
+  transition: box-shadow 0.25s ease;
 }
 
-.comic-card-content {
-  background-color: var(--comic-white);
-  padding: 18px;
-  height: 100%;
-  width: 100%;
+/* PANEL SHAPES */
+.shape-slant-right {
+  transform: rotate(0.4deg);
 }
 
-/* --- POLYGON SHAPE VARIANTS --- */
-.shape-slant-right .comic-panel-frame,
-.shape-slant-right .comic-card-content {
-  clip-path: polygon(0% 0%, 98% 2%, 100% 98%, 2% 100%);
+.shape-skew-left {
+  transform: rotate(-0.4deg);
 }
 
-.shape-skew-left .comic-panel-frame,
-.shape-skew-left .comic-card-content {
-  clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%);
+.shape-wedge {
+  transform: rotate(0.3deg);
 }
 
-.shape-wedge .comic-panel-frame,
-.shape-wedge .comic-card-content {
-  clip-path: polygon(0% 3%, 100% 0%, 97% 100%, 0% 95%);
+.shape-banner {
+  transform: rotate(-0.3deg);
 }
 
-.shape-banner .comic-panel-frame,
-.shape-banner .comic-card-content {
-  clip-path: polygon(0% 2%, 100% 0%, 98% 98%, 1% 100%);
+/* HOVER & POP-OUT EFFECTS */
+.panel-wrapper:hover {
+  transform: scale(1.02) translate(-3px, -3px);
+  z-index: 10;
 }
 
-/* ==========================================================================
-   4. UI ELEMENTS & NAVIGATION
-   ========================================================================== */
-.speech-bubble {
-  position: relative;
-  background: var(--comic-red);
-  color: var(--comic-white);
-  border: 3px solid var(--comic-dark);
-  padding: 4px 12px;
-  font-family: "Bangers", cursive;
-  font-size: 1.2rem;
-  box-shadow: 3px 3px 0px var(--comic-dark);
+.panel-wrapper:hover .comic-panel-frame {
+  box-shadow: 8px 8px 0px var(--comic-dark);
+}
+
+/* TAGS & BUTTONS */
+.tag {
   display: inline-block;
-  transform: rotate(-3deg);
-}
-
-.speech-bubble::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 12px;
-  border-width: 10px 8px 0;
-  border-style: solid;
-  border-color: var(--comic-red) transparent;
-  display: block;
-  width: 0;
+  background: #f1f5f9;
+  border: 2px solid var(--comic-dark);
+  border-radius: 0px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-right: 6px;
+  margin-top: 6px;
 }
 
 .comic-btn {
   display: inline-block;
-  background: var(--comic-yellow);
-  color: var(--comic-dark);
   font-family: "Bangers", cursive;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  padding: 10px 20px;
   text-decoration: none;
-  padding: 6px 14px;
-  border: 2.5px solid var(--comic-dark);
-  border-radius: 6px;
-  box-shadow: 3px 3px 0px var(--comic-dark);
-  cursor: pointer;
+  color: white;
+  background: var(--comic-red);
+  border: 3px solid var(--comic-dark);
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px var(--comic-dark);
   transition: transform 0.1s ease;
 }
 
 .comic-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px var(--comic-dark);
+  box-shadow: 6px 6px 0px var(--comic-dark);
 }
 
-.comic-btn.red {
-  background: var(--comic-red);
-  color: var(--comic-white);
-}
-.comic-btn.blue {
-  background: var(--comic-blue);
-}
-
-.tag {
+/* SPEECH BUBBLE */
+.speech-bubble {
+  position: relative;
+  background: white;
+  border: 3px solid var(--comic-dark);
+  border-radius: 0px;
+  padding: 6px 14px;
   display: inline-block;
-  background: #ffffff;
-  color: var(--comic-dark);
-  border: 2px solid var(--comic-dark);
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  margin-right: 4px;
-  margin-top: 6px;
-  box-shadow: 2px 2px 0px var(--comic-dark);
+  font-family: "Bangers", cursive;
+  font-size: 1.1rem;
 }
 
+/* NAVIGATION BUTTONS */
 .nav-btn {
   position: absolute;
-  bottom: 20px;
-  z-index: 10;
+  bottom: 16px;
+  z-index: 20;
+  font-family: "Bangers", cursive;
+  font-size: 1.2rem;
+  padding: 8px 18px;
   background: var(--comic-yellow);
   border: 3px solid var(--comic-dark);
-  font-family: "Bangers", cursive;
-  font-size: 1.3rem;
-  padding: 6px 18px;
+  border-radius: 0px;
   box-shadow: 4px 4px 0px var(--comic-dark);
   cursor: pointer;
-  transition: transform 0.1s ease;
+}
+
+.nav-prev {
+  left: 20px;
+}
+
+.nav-next {
+  right: 20px;
 }
 
 .nav-btn:hover {
@@ -225,48 +222,258 @@ h3,
   box-shadow: 6px 6px 0px var(--comic-dark);
 }
 
-.nav-prev {
-  left: 20px;
+/* VIBRANT PANEL COLOR VARIATIONS */
+.panel-wrapper.color-purple .comic-panel-frame {
+  background-color: #f3e8ff;
+  border-color: #9333ea;
 }
-.nav-next {
-  right: 20px;
+.panel-wrapper.color-purple h3,
+.panel-wrapper.color-purple p.card-title {
+  color: #7e22ce;
 }
 
-/* ==========================================================================
-   5. RESPONSIVE FALLBACK FOR MOBILE
-   ========================================================================== */
-@media (max-width: 768px) {
-  body {
-    display: block;
-    padding: 10px;
-    overflow-y: auto;
-  }
+.panel-wrapper.color-blue .comic-panel-frame {
+  background-color: #dbeafe;
+  border-color: #2563eb;
+}
+.panel-wrapper.color-blue h3,
+.panel-wrapper.color-blue p.card-title {
+  color: #1d4ed8;
+}
 
-  .book-wrapper {
-    width: 100%;
-    height: auto;
-    min-height: initial;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    overflow: visible;
-  }
+.panel-wrapper.color-red .comic-panel-frame {
+  background-color: #ffe4e6;
+  border-color: #e11d48;
+}
+.panel-wrapper.color-red h3,
+.panel-wrapper.color-red p.card-title {
+  color: #be123c;
+}
 
-  .spread {
-    position: relative;
-    opacity: 1;
-    pointer-events: auto;
-    flex-direction: column;
-    transform: none;
-    margin-bottom: 24px;
-  }
+.panel-wrapper.color-green .comic-panel-frame {
+  background-color: #dcfce7;
+  border-color: #16a34a;
+}
+.panel-wrapper.color-green h3,
+.panel-wrapper.color-green p.card-title {
+  color: #15803d;
+}
 
-  .page-left {
-    border-right: none;
-    border-bottom: 4px solid var(--comic-dark);
-  }
+.panel-wrapper.color-yellow .comic-panel-frame {
+  background-color: #fef9c3;
+  border-color: #d97706;
+}
+.panel-wrapper.color-yellow h3,
+.panel-wrapper.color-yellow p.card-title {
+  color: #b45309;
+}
+/* Page Colors & Utilities */
+.page-yellow {
+  background: var(--comic-yellow, #fde047);
+}
 
-  .nav-btn {
-    display: none;
-  }
+.speech-bubble-margin {
+  margin-bottom: 12px;
+}
+.about-prefix-heading {
+  font-size: 3.2rem;
+  line-height: 0.95;
+}
+.about-name-heading {
+  font-size: 4.2rem;
+  color: var(--comic-red, #e11d48);
+  line-height: 0.95;
+}
+.about-role-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-top: 16px;
+}
+.about-bio-text {
+  font-weight: 600;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+.about-cta-container {
+  margin-top: 24px;
+}
+
+.section-title {
+  font-size: 2rem;
+}
+.section-heading-blue {
+  font-size: 2.2rem;
+  color: var(--comic-blue, #2563eb);
+}
+.section-heading-red {
+  font-size: 2.2rem;
+  color: var(--comic-red, #e11d48);
+}
+.section-subtitle {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.personality-tags-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag-medium {
+  font-size: 0.95rem;
+}
+.tag-small {
+  font-size: 0.85rem;
+}
+
+.skill-group {
+  margin-bottom: 12px;
+}
+.skill-category-label {
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--comic-red, #e11d48);
+  letter-spacing: 0.05em;
+}
+.skill-tags-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Dynamic Card Colors & Typography */
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+.card-description {
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.card-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-stats-itch {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--comic-red, #e11d48);
+  margin-top: 6px;
+  display: flex;
+  gap: 12px;
+}
+.project-stats-status {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-top: 6px;
+}
+.project-action-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+}
+
+.project-spread-title {
+  font-size: 2.2rem;
+  margin-bottom: 4px;
+}
+.project-spread-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.exp-title {
+  font-size: 1.1rem;
+}
+.exp-period {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+}
+.exp-highlights-list {
+  margin-top: 6px;
+  padding-left: 16px;
+  font-size: 0.85rem;
+}
+
+.card-header-label {
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.stat-main-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 4px;
+}
+.stat-number-display {
+  font-size: 2.8rem;
+  margin: 0;
+  line-height: 1;
+}
+.stat-label-muted {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.lc-breakdown-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.text-easy {
+  color: #10b981;
+}
+.text-medium {
+  color: #f59e0b;
+}
+.text-hard {
+  color: #ef4444;
+}
+
+.stat-detail-dark {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+.hr-status-text {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.stat-detail-muted {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.mb-4 {
+  margin-bottom: 4px;
+}
+.mb-12 {
+  margin-bottom: 12px;
+}
+.mt-4 {
+  margin-top: 4px;
+}
+.mt-6 {
+  margin-top: 6px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-24 {
+  margin-top: 24px;
 }

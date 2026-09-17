@@ -1,0 +1,41 @@
+[
+  {
+    "id": "project-1",
+    "title": "Granny's Gamble",
+    "description": "Fun project I made with 3 other developers.",
+    "tags": ["Video Game", "Unreal Engine 5"],
+    "image": "Assets/images/project1.png",
+    "liveUrl": "https://mayobt.itch.io/grannys-gamble",
+    "itchSlug": "grannys-gamble",
+    "githubUrl": "https://github.com/..."
+  },
+  {
+    "id": "project-2",
+    "title": "Loop Paul",
+    "description": "Unreal Engine Mega Game Jam project I made with 4 other developers.",
+    "tags": ["Video Game", "Unreal Engine 5"],
+    "image": "Assets/images/project1.png",
+    "liveUrl": "https://mayobt.itch.io/loop-paul",
+    "itchSlug": "loop-paul",
+    "githubUrl": "https://github.com/..."
+  },
+  {
+    "id": "project-3",
+    "title": "Tether",
+    "description": "3D indie game published on itch.io.",
+    "tags": ["Video Game", "Unreal Engine 5"],
+    "image": "Assets/images/project1.png",
+    "liveUrl": "https://mayobt.itch.io/tether",
+    "itchSlug": "tether",
+    "githubUrl": "https://github.com/..."
+  },
+  {
+    "id": "project-4",
+    "title": "Lift Up",
+    "description": "Gym tracking app created for android devices.",
+    "tags": ["Mobile", "React Native"],
+    "image": "Assets/images/project1.png",
+    "githubUrl": "https://github.com/...",
+    "status": "In Development"
+  }
+]

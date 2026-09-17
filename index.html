@@ -16,176 +16,224 @@
   </head>
   <body>
     <div class="book-wrapper">
-      <!-- SPREAD 1: COVER & INTRO -->
+      <!-- SPREAD 1: COVER, INTRO & SKILLS -->
       <div class="spread active" id="spread-1">
         <div class="page page-left" style="background: var(--comic-yellow)">
           <div class="speech-bubble" style="margin-bottom: 12px">ISSUE #1</div>
-          <h1 style="font-size: 3.2rem; line-height: 0.95">
-            THE ADVENTURES OF
-          </h1>
           <h1
+            id="about-title-prefix"
+            style="font-size: 3.2rem; line-height: 0.95"
+          ></h1>
+          <h1
+            id="about-name"
             style="
               font-size: 4.2rem;
               color: var(--comic-red);
               line-height: 0.95;
             "
+          ></h1>
+          <p
+            id="about-role"
+            style="font-size: 1.2rem; font-weight: 800; margin-top: 16px"
           >
-            JAKE STAHL
-          </h1>
-          <p style="font-size: 1.2rem; font-weight: 800; margin-top: 16px">
             SOFTWARE DEVELOPER
           </p>
-          <p style="font-weight: 600; margin-top: 12px; line-height: 1.4">
+          <p
+            id="about-bio"
+            style="font-weight: 600; margin-top: 12px; line-height: 1.4"
+          >
             Building games, web applications, and interactive experiences.
             Scroll down or click next to turn the page!
           </p>
           <div style="margin-top: 24px">
-            <a href="./resume.pdf" target="_blank" class="comic-btn red"
+            <a
+              id="about-resume"
+              href="./resume.pdf"
+              target="_blank"
+              class="comic-btn red"
               >DOWNLOAD RESUME (PDF)</a
             >
           </div>
         </div>
 
         <div class="page page-right">
-          <h2 style="font-size: 2rem; margin-bottom: 16px">PERSONALITY BITS</h2>
-          <div class="panel-wrapper shape-banner">
+          <!-- PERSONALITY BITS -->
+          <h2 style="font-size: 2rem; margin-bottom: 12px">PERSONALITY BITS</h2>
+          <div class="panel-wrapper shape-banner color-yellow pattern-dots">
             <div class="comic-panel-frame">
               <div class="comic-card-content">
-                <div style="display: flex; flex-wrap: wrap; gap: 8px">
-                  <span class="tag" style="font-size: 0.95rem"
-                    >🎤 COMMUNITY</span
-                  >
-                  <span class="tag" style="font-size: 0.95rem">🎭 COMEDY</span>
-                  <span class="tag" style="font-size: 0.95rem">🎮 GAMER</span>
-                  <span class="tag" style="font-size: 0.95rem"
-                    >🚀 OUTGOING</span
-                  >
-                  <span class="tag" style="font-size: 0.95rem"
-                    >💻 CODE-OBSESSED</span
-                  >
+                <div
+                  id="personality-tags"
+                  style="display: flex; flex-wrap: wrap; gap: 8px"
+                >
+                  <!-- Populated from About.json -->
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SKILLS SECTION -->
+          <h2 style="font-size: 2rem; margin-top: 24px; margin-bottom: 12px">
+            SUPERPOWERS & SKILLS
+          </h2>
+          <div class="panel-wrapper shape-slant-right color-blue pattern-grid">
+            <div class="comic-panel-frame">
+              <div class="comic-card-content" id="skills-container">
+                <!-- Populated from Skills.json -->
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- SPREAD 2: FEATURED PROJECTS -->
-      <div class="spread" id="spread-2">
-        <div class="page page-left">
-          <h2 style="font-size: 2.4rem">PROJECTS</h2>
-          <p
-            style="
-              font-size: 1.1rem;
-              font-weight: 600;
-              color: #4b5563;
-              margin-top: 10px;
-            "
-          >
-            Fun projects I've created in my spare time.
-          </p>
-
-          <div class="panel-wrapper shape-slant-right" style="margin-top: 20px">
-            <div class="comic-panel-frame">
-              <div class="comic-card-content">
-                <h3>Safe Yatra - Women's Safety App</h3>
-                <p style="font-size: 0.85rem; margin: 8px 0; font-weight: 500">
-                  Mobile app with voice emergency alerts and TensorFlow.js
-                  integration.
-                </p>
-                <div>
-                  <span class="tag">React Native</span>
-                  <span class="tag">Python</span>
-                  <span class="tag">TensorFlow.js</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="page page-right">
-          <div class="panel-wrapper shape-skew-left">
-            <div class="comic-panel-frame">
-              <div class="comic-card-content">
-                <h3>Little Angel Foundation</h3>
-                <p style="font-size: 0.85rem; margin: 8px 0; font-weight: 500">
-                  NGO Website built with React, Cloudinary, and Neon DB.
-                </p>
-                <div>
-                  <span class="tag">React</span>
-                  <span class="tag">Neon DB</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel-wrapper shape-wedge">
-            <div class="comic-panel-frame">
-              <div
-                class="comic-card-content"
-                style="
-                  background-color: var(--comic-purple);
-                  color: var(--comic-white);
-                "
-              >
-                <h3 style="color: var(--comic-white)">2D Platformer Game</h3>
-                <p style="font-size: 0.85rem; margin: 8px 0; color: #f3e8ff">
-                  Desktop platformer built in Unity with custom physics.
-                </p>
-                <div>
-                  <span class="tag">C#</span>
-                  <span class="tag">Unity</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- DYNAMIC PROJECTS CONTAINER -->
+      <div id="projects-spreads-container">
+        <!-- Spreads for projects will be injected dynamically here -->
       </div>
 
-      <!-- SPREAD 3: LIVE CODE STATS -->
-      <div class="spread" id="spread-3">
+      <!-- LAST SPREAD: EXPERIENCE & STATS -->
+      <div class="spread" id="spread-experience">
         <div class="page page-left">
           <h2 style="font-size: 2.2rem; color: var(--comic-blue)">
-            LIVE CODE STATS
+            EXPERIENCE & WORK
           </h2>
           <p style="font-weight: 600; margin-top: 10px">
             Quantitative proof of technical competency.
           </p>
+          <div id="experience-container" style="margin-top: 20px">
+            <!-- Populated from Experience.json -->
+          </div>
         </div>
 
-        <div class="page page-right">
-          <div class="panel-wrapper shape-slant-right">
+        <div class="page page-right" id="stats-container">
+          <h2
+            style="
+              font-size: 2.2rem;
+              color: var(--comic-red);
+              margin-bottom: 12px;
+            "
+          >
+            LIVE STATS
+          </h2>
+
+          <!-- LEETCODE CARD -->
+          <div
+            class="panel-wrapper shape-slant-right color-purple pattern-dots"
+          >
             <div class="comic-panel-frame">
               <div class="comic-card-content">
                 <p style="font-weight: 800; font-size: 0.9rem; margin: 0">
-                  LEETCODE
+                  LEETCODE (@jake-stahl)
                 </p>
-                <p
-                  class="comic-font"
-                  style="font-size: 2.8rem; margin: 0; line-height: 1"
+                <div
+                  style="
+                    display: flex;
+                    align-items: baseline;
+                    gap: 12px;
+                    margin-top: 4px;
+                  "
                 >
-                  182
-                </p>
-                <p style="font-size: 0.8rem; color: #64748b; margin-top: 4px">
-                  Total Problems Solved
-                </p>
+                  <p
+                    id="lc-solved"
+                    class="comic-font"
+                    style="font-size: 2.8rem; margin: 0; line-height: 1"
+                  >
+                    13
+                  </p>
+                  <p
+                    style="font-size: 0.85rem; color: #64748b; font-weight: 700"
+                  >
+                    Problems Solved
+                  </p>
+                </div>
+                <div
+                  id="lc-breakdown"
+                  style="
+                    display: flex;
+                    gap: 10px;
+                    margin-top: 6px;
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                  "
+                >
+                  <span style="color: #10b981"
+                    >Easy: <span id="lc-easy">10</span></span
+                  >
+                  <span style="color: #f59e0b"
+                    >Med: <span id="lc-medium">3</span></span
+                  >
+                  <span style="color: #ef4444"
+                    >Hard: <span id="lc-hard">0</span></span
+                  >
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="panel-wrapper shape-skew-left">
+          <!-- ITCH.IO CARD -->
+          <div class="panel-wrapper shape-skew-left color-red pattern-stripes">
             <div class="comic-panel-frame">
               <div class="comic-card-content">
                 <p
                   style="font-weight: 800; font-size: 0.9rem; margin: 0 0 4px 0"
                 >
-                  HACKERRANK
+                  ITCH.IO (@new-legacy)
                 </p>
-                <p style="font-weight: 700; font-size: 0.9rem; margin: 0">
-                  Problem Solving: ★★★★★
+                <div style="display: flex; align-items: baseline; gap: 12px">
+                  <p
+                    id="itch-count"
+                    class="comic-font"
+                    style="font-size: 2.8rem; margin: 0; line-height: 1"
+                  >
+                    3
+                  </p>
+                  <p
+                    style="font-size: 0.85rem; color: #64748b; font-weight: 700"
+                  >
+                    Published Games
+                  </p>
+                </div>
+                <p
+                  id="itch-games-list"
+                  style="
+                    font-weight: 600;
+                    font-size: 0.8rem;
+                    margin-top: 6px;
+                    color: #4b5563;
+                  "
+                >
+                  👁️ <span id="itch-total-views">843</span> Views • 📥
+                  <span id="itch-total-downloads">211</span> Downloads
                 </p>
-                <p style="font-weight: 700; font-size: 0.9rem; margin-top: 4px">
-                  React (Basic): Certified
+              </div>
+            </div>
+          </div>
+
+          <!-- HACKERRANK CARD -->
+          <div class="panel-wrapper shape-wedge color-green pattern-halftone">
+            <div class="comic-panel-frame">
+              <div class="comic-card-content">
+                <p
+                  style="font-weight: 800; font-size: 0.9rem; margin: 0 0 4px 0"
+                >
+                  HACKERRANK (@jakestahl24)
+                </p>
+                <p
+                  id="hr-status"
+                  style="font-weight: 700; font-size: 0.9rem; margin: 0"
+                >
+                  Profile Active 🇦🇺
+                </p>
+                <p
+                  id="hr-badges"
+                  style="
+                    font-weight: 600;
+                    font-size: 0.8rem;
+                    margin-top: 4px;
+                    color: #64748b;
+                  "
+                >
+                  Verified Developer
                 </p>
               </div>
             </div>
@@ -201,9 +249,20 @@
     </div>
 
     <script>
+      const ITCH_API_KEY = "Oyxm11NSiPuaz5OEqkCyayRDr7oWf6lCw5RylPcc";
+
+      // --- PAGE NAVIGATION SCRIPT ---
       let currentSpread = 1;
-      const totalSpreads = 3;
+      let totalSpreads = 2;
       let isScrolling = false;
+
+      function updateSpreadIDs() {
+        const spreads = document.querySelectorAll(".spread");
+        spreads.forEach((spread, idx) => {
+          spread.id = `spread-${idx + 1}`;
+        });
+        totalSpreads = spreads.length;
+      }
 
       function changeSpread(direction) {
         const nextSpread = currentSpread + direction;
@@ -218,13 +277,11 @@
           .classList.add("active");
       }
 
-      // Keyboard Navigation
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") changeSpread(1);
         if (e.key === "ArrowLeft") changeSpread(-1);
       });
 
-      // Scroll Wheel & Trackpad Navigation
       document.addEventListener(
         "wheel",
         (e) => {
@@ -245,8 +302,309 @@
         isScrolling = true;
         setTimeout(() => {
           isScrolling = false;
-        }, 600); // Cooldown to prevent multi-page flips on fast scrolling
+        }, 600);
       }
+
+      // --- FETCH ITCH.IO DATA VIA CORS PROXY ---
+      async function fetchItchData() {
+        const itchMap = {};
+        try {
+          const targetUrl = `https://itch.io/api/1/${ITCH_API_KEY}/my-games`;
+          const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`;
+
+          const res = await fetch(proxyUrl);
+          if (res.ok) {
+            const data = await res.json();
+            if (data.games) {
+              let totalViews = 0;
+              let totalDownloads = 0;
+
+              data.games.forEach((game) => {
+                const views = game.views_count || 0;
+                const downloads = game.downloads_count || 0;
+                totalViews += views;
+                totalDownloads += downloads;
+
+                const keyByTitle = game.title.toLowerCase().trim();
+                const keyByUrl = game.url
+                  ? game.url.split("/").pop().toLowerCase()
+                  : "";
+
+                itchMap[keyByTitle] = { views, downloads, url: game.url };
+                if (keyByUrl)
+                  itchMap[keyByUrl] = { views, downloads, url: game.url };
+              });
+
+              document.getElementById("itch-count").innerText =
+                data.games.length;
+              document.getElementById("itch-total-views").innerText =
+                totalViews;
+              document.getElementById("itch-total-downloads").innerText =
+                totalDownloads;
+            }
+          }
+        } catch (err) {
+          console.warn("Could not load live itch stats, using defaults:", err);
+        }
+        return itchMap;
+      }
+
+      // --- OTHER STATS ---
+      async function fetchOtherStats() {
+        try {
+          const lcRes = await fetch(
+            "https://leetcode-stats-api.herokuapp.com/jake-stahl",
+          );
+          if (lcRes.ok) {
+            const data = await lcRes.json();
+            if (data.status === "success") {
+              document.getElementById("lc-solved").innerText = data.totalSolved;
+              document.getElementById("lc-easy").innerText = data.easySolved;
+              document.getElementById("lc-medium").innerText =
+                data.mediumSolved;
+              document.getElementById("lc-hard").innerText = data.hardSolved;
+            }
+          }
+        } catch (e) {
+          console.warn("LeetCode API fallback");
+        }
+
+        try {
+          const hrRes = await fetch(
+            "https://www.hackerrank.com/rest/hackers/jakestahl24/profile",
+          );
+          if (hrRes.ok) {
+            const data = await hrRes.json();
+            if (data.model) {
+              document.getElementById("hr-status").innerText =
+                `${data.model.name || "Jake Stahl"} 🇦🇺`;
+            }
+          }
+        } catch (e) {
+          console.warn("HackerRank fallback");
+        }
+      }
+
+      // --- MAIN DATA LOADING ---
+      async function loadPortfolioData() {
+        const itchStatsMap = await fetchItchData();
+        fetchOtherStats();
+
+        try {
+          const [aboutRes, projectsRes, experienceRes, skillsRes] =
+            await Promise.all([
+              fetch("Assets/About.json").catch(() => null),
+              fetch("Assets/Projects.json").catch(() => null),
+              fetch("Assets/Experience.json").catch(() => null),
+              fetch("Assets/Skills.json").catch(() => null),
+            ]);
+
+          if (aboutRes && aboutRes.ok) {
+            const about = await aboutRes.json();
+            if (about.title)
+              document.getElementById("about-title-prefix").innerText =
+                about.title;
+            if (about.name)
+              document.getElementById("about-name").innerText = about.name;
+            if (about.subtitle || about.role)
+              document.getElementById("about-role").innerText =
+                about.subtitle || about.role;
+            if (about.bio)
+              document.getElementById("about-bio").innerText = about.bio;
+            if (about.resumeLink)
+              document.getElementById("about-resume").href = about.resumeLink;
+
+            if (about.badges && Array.isArray(about.badges)) {
+              document.getElementById("personality-tags").innerHTML =
+                about.badges
+                  .map(
+                    (badge) =>
+                      `<span class="tag" style="font-size: 0.95rem">${badge}</span>`,
+                  )
+                  .join("");
+            }
+          }
+
+          if (skillsRes && skillsRes.ok) {
+            const skills = await skillsRes.json();
+            const skillsContainer = document.getElementById("skills-container");
+            skillsContainer.innerHTML = "";
+
+            Object.keys(skills).forEach((category) => {
+              const skillList = skills[category];
+              skillsContainer.innerHTML += `
+                <div style="margin-bottom: 12px;">
+                  <p style="font-weight: 800; font-size: 0.9rem; margin-bottom: 6px; color: var(--comic-red, #e11d48); letter-spacing: 0.05em;">
+                    ${category.toUpperCase()}
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    ${skillList.map((skill) => `<span class="tag" style="font-size: 0.85rem">${skill}</span>`).join("")}
+                  </div>
+                </div>
+              `;
+            });
+          }
+
+          if (projectsRes && projectsRes.ok) {
+            const projects = await projectsRes.json();
+            const projectsContainer = document.getElementById(
+              "projects-spreads-container",
+            );
+            projectsContainer.innerHTML = "";
+
+            const shapes = [
+              "shape-slant-right",
+              "shape-skew-left",
+              "shape-wedge",
+            ];
+            const colors = [
+              "color-blue",
+              "color-yellow",
+              "color-green",
+              "color-purple",
+              "color-red",
+            ];
+            const patterns = [
+              "pattern-dots",
+              "pattern-stripes",
+              "pattern-grid",
+              "pattern-waves",
+              "pattern-halftone",
+            ];
+
+            const leftPageCount = 2;
+            const rightPageCount = 3;
+            const itemsPerSpread = leftPageCount + rightPageCount;
+            const spreadCount = Math.ceil(projects.length / itemsPerSpread);
+
+            for (let s = 0; s < spreadCount; s++) {
+              const spreadProjects = projects.slice(
+                s * itemsPerSpread,
+                (s + 1) * itemsPerSpread,
+              );
+              const leftProjects = spreadProjects.slice(0, leftPageCount);
+              const rightProjects = spreadProjects.slice(
+                leftPageCount,
+                itemsPerSpread,
+              );
+
+              const renderCard = (proj, i) => {
+                const shapeClass = shapes[i % shapes.length];
+                const colorClass = colors[i % colors.length];
+                const patternClass = patterns[i % patterns.length];
+                const tagsHtml = (proj.tags || [])
+                  .map((t) => `<span class="tag">${t}</span>`)
+                  .join(" ");
+
+                const titleKey = (proj.title || "").toLowerCase().trim();
+                const slugKey = (proj.itchSlug || "").toLowerCase().trim();
+                const itchData =
+                  itchStatsMap[slugKey] || itchStatsMap[titleKey];
+
+                let statsBadgeHtml = "";
+                if (itchData) {
+                  statsBadgeHtml = `
+                    <div style="font-size: 0.8rem; font-weight: 800; color: var(--comic-red, #e11d48); margin-top: 6px; display: flex; gap: 12px;">
+                      <span>👁️ ${itchData.views} Views</span>
+                      <span>📥 ${itchData.downloads} Downloads</span>
+                    </div>
+                  `;
+                } else if (proj.status) {
+                  statsBadgeHtml = `
+                    <div style="font-size: 0.8rem; font-weight: 800; color: #2563eb; margin-top: 6px;">
+                      🚀 ${proj.status}
+                    </div>
+                  `;
+                }
+
+                const actionButton = proj.liveUrl
+                  ? `<a href="${proj.liveUrl}" target="_blank" class="comic-btn red" style="display:inline-block; margin-top:8px; padding: 4px 10px; font-size:0.75rem;">VIEW ON ITCH.IO</a>`
+                  : "";
+
+                return `
+                  <div class="panel-wrapper ${shapeClass} ${colorClass} ${patternClass}">
+                    <div class="comic-panel-frame">
+                      <div class="comic-card-content">
+                        <div>
+                          <h3 style="font-size: 1.2rem; margin-bottom: 4px;">${proj.title}</h3>
+                          <p style="font-size: 0.85rem; font-weight: 500; line-height: 1.3;">${proj.description}</p>
+                          ${statsBadgeHtml}
+                        </div>
+                        <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;">
+                          <div>${tagsHtml}</div>
+                          ${actionButton}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                `;
+              };
+
+              const spreadHtml = `
+                <div class="spread">
+                  <div class="page page-left">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 4px;">${s === 0 ? "PROJECTS" : "PROJECTS (CONT.)"}</h2>
+                    <p style="font-size: 1rem; font-weight: 600; color: #4b5563;">
+                      ${s === 0 ? "Fun projects I've created in my spare time." : "More created works & experiments."}
+                    </p>
+                    <div class="projects-column">
+                      ${leftProjects.map((p, i) => renderCard(p, i)).join("")}
+                    </div>
+                  </div>
+
+                  <div class="page page-right">
+                    <div class="projects-column">
+                      ${rightProjects.map((p, i) => renderCard(p, i + leftPageCount)).join("")}
+                    </div>
+                  </div>
+                </div>
+              `;
+
+              projectsContainer.innerHTML += spreadHtml;
+            }
+          }
+
+          if (experienceRes && experienceRes.ok) {
+            const expData = await experienceRes.json();
+            const expContainer = document.getElementById(
+              "experience-container",
+            );
+            const colors = ["color-yellow", "color-blue", "color-green"];
+            const patterns = [
+              "pattern-stripes",
+              "pattern-grid",
+              "pattern-dots",
+            ];
+
+            if (Array.isArray(expData)) {
+              expContainer.innerHTML = expData
+                .map(
+                  (exp, i) => `
+                <div class="panel-wrapper shape-slant-right ${colors[i % colors.length]} ${patterns[i % patterns.length]}" style="margin-bottom: 12px;">
+                  <div class="comic-panel-frame">
+                    <div class="comic-card-content">
+                      <h3 style="font-size: 1.1rem">${exp.role} @ ${exp.company}</h3>
+                      <p style="font-size: 0.8rem; color: #64748b; font-weight: 600">${exp.period}</p>
+                      <ul style="margin-top: 6px; padding-left: 16px; font-size: 0.85rem">
+                        ${(exp.highlights || []).map((h) => `<li>${h}</li>`).join("")}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              `,
+                )
+                .join("");
+            }
+          }
+
+          updateSpreadIDs();
+        } catch (err) {
+          console.warn("Error rendering JSON data:", err);
+          updateSpreadIDs();
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", loadPortfolioData);
     </script>
   </body>
 </html>

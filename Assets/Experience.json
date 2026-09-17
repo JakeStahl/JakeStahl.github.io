@@ -1,0 +1,20 @@
+[
+  {
+    "role": "Bachelors of Computer Science",
+    "company": "Swinburne University",
+    "period": "2025 - Present",
+    "highlights": [
+      "Studying core computer science principles, object-oriented programming, and software architecture.",
+      "Building full-stack web applications and algorithms to solve complex computing problems."
+    ]
+  },
+  {
+    "role": "Diploma of Game Development",
+    "company": "Swinburne University",
+    "period": "2024 - 2025",
+    "highlights": [
+      "Designed and developed interactive 3D games using Unreal Engine.",
+      "Collaborated on game design mechanics, asset pipeline integration, and level scripting."
+    ]
+  }
+]
