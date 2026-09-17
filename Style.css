@@ -1,0 +1,47 @@
+/* --- style.css --- */
+
+/* 1. Global Outline Reset: Apply bold black lines to everything. */
+* {
+  box-sizing: border-box;
+  outline: 3px solid #000000; /* Bold comic outline on everything */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd; /* Off-white for readability */
+  color: #000000;
+  font-family:
+    "Bangers", cursive; /* We will use a fun, blocky font. You could also use a simpler Sans-Serif. */
+}
+
+/* 2. The Core Comic Card Style: This creates the classic look of image_7.png. */
+.comic-container {
+  background-color: #ffffff; /* White card inside black borders */
+  border-radius: 12px;
+  overflow: hidden; /* Important for dynamic loading and clean edges */
+  padding: 20px;
+  margin-bottom: 24px;
+
+  /* The Defining Feature: Offset Black Pop-Art Shadow */
+  box-shadow: 6px 6px 0px #000000; /* Thick solid shadow */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* 3. The Hover Effect: Interactive pop-out. */
+.comic-container:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px #000000;
+}
+
+/* 4. Section & Card Headers: Bold and uppercase. */
+.comic-header {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  margin-top: 0;
+}

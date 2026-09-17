@@ -1,36 +1,163 @@
+<!-- --- index.html --- -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 0 20px;
-        line-height: 1.6;
-      }
-      h1 {
-        color: #2563eb;
-      }
-      .card {
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        padding: 16px;
-        margin-top: 16px;
-      }
-    </style>
+    <title>Jake Stahl Portfolio | Comic Mode</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Add a Google Font to match the visual example -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Hi, I'm [Your Name]</h1>
-    <p>Welcome to my portfolio! Built with HTML & GitHub Pages.</p>
+    <!-- THE JAKE STAHL PORTFOLIO LAYOUT -->
+    <div
+      class="main-wrapper"
+      style="
+        display: grid;
+        grid-template-columns: 250px 1fr 280px;
+        gap: 24px;
+        padding: 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+      "
+    >
+      <!-- ============================================ -->
+      <!-- LEFT SIDE: PERSONALITY BITS (as seen in image_7.png) -->
+      <!-- ============================================ -->
+      <aside class="left-section">
+        <div class="comic-container personality-bits">
+          <h2 class="comic-header">Jake Stahl</h2>
+          <p class="role">Software Developer</p>
 
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Project 1</h3>
-      <p>Short description of what you built.</p>
+          <div class="bit-item">
+            <h3>Community</h3>
+            <span class="icon"> (Megaphone Icon) </span>
+          </div>
+
+          <div class="bit-item">
+            <h3>Comedy</h3>
+            <span class="icon"> (Mask Icon) </span>
+          </div>
+
+          <div class="bit-item">
+            <h3>Gamer</h3>
+            <span class="icon"> (Joystick Icon) </span>
+          </div>
+
+          <div class="bit-item">
+            <h3>Outgoing</h3>
+            <span class="icon"> (Arrow Icon) </span>
+          </div>
+
+          <div class="bit-item">
+            <h3>Code-Obsessed</h3>
+            <span class="icon"> (Code Icon) </span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ============================================ -->
+      <!-- CENTER: FEATURED PROJECTS (Mapped to image_7.png) -->
+      <!-- ============================================ -->
+      <main class="center-section">
+        <!-- HERO/ABOUT TEXT -->
+        <div class="comic-container about-hero">
+          <h1 class="comic-header">Jake Stahl - Developer</h1>
+          <p>BUILDING INNOVATIVE GAMES, APPS, & EXPERIENCES.</p>
+        </div>
+
+        <!-- THE PROJECTS LIST (Mapped to your data.json array) -->
+        <div class="projects-grid" id="projects-container">
+          <!-- PROJECT 1: Web App (Using colors from the example) -->
+          <div
+            class="comic-container project-card"
+            style="background-color: #f7eb5e"
+          >
+            <!-- Bright Comic Yellow -->
+            <h3 class="comic-header">Safe Yatra - Women's Safety App</h3>
+            <p>Built with TensorFlow.js, Python, React Native.</p>
+            <div class="tags">
+              <span class="tag">React</span> <span class="tag">Python</span>
+            </div>
+            <div class="links">
+              <a href="#" class="link-btn github">GitHub Repo</a>
+              <a href="#" class="link-btn live">Live Demo</a>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: NGO Site -->
+          <div
+            class="comic-container project-card"
+            style="background-color: #ffffff"
+          >
+            <h3 class="comic-header">Little Angel Foundation - NGO Site</h3>
+            <p>Official site for an NGO, built from scratch.</p>
+            <div class="tags">
+              <span class="tag">React</span> <span class="tag">JavaScript</span>
+              <span class="tag">API</span>
+            </div>
+            <div class="links">
+              <a href="#" class="link-btn github">GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- PROJECT 3: Game Project (Referencing Itch.io) -->
+          <div
+            class="comic-container project-card"
+            style="background-color: #a78bfa"
+          >
+            <!-- Lavender Pop Color -->
+            <h3 class="comic-header">2D Game Project</h3>
+            <p>A fast-paced platformer game built using Unity/C#.</p>
+            <div class="tags">
+              <span class="tag">Unity</span> <span class="tag">Itch.io</span>
+            </div>
+            <div class="links">
+              <a href="#" class="link-btn live">Play on Itch.io</a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- ============================================ -->
+      <!-- RIGHT SIDE: LIVE CODE STATS (Mapped to image_7.png) -->
+      <!-- ============================================ -->
+      <aside class="right-section">
+        <!-- LEETCODE PANEL (Static Example for now) -->
+        <div class="comic-container live-stats-panel leetcode-style">
+          <h2 class="comic-header">Live Code Stats</h2>
+          <h3>LeetCode</h3>
+          <p class="stat-count">182</p>
+          <p class="stat-label">Total Solved</p>
+          <div class="heatmap-placeholder">
+            <!-- The green contribution squares (image_7.png) will load here via API -->
+            [ HEATMAP GOES HERE ]
+          </div>
+        </div>
+
+        <!-- HACKERRANK PANEL -->
+        <div class="comic-container live-stats-panel hackerrank-style">
+          <h3>HackerRank</h3>
+          <div class="skill-stars">
+            <p>Problem Solving: ★★★★★</p>
+            <p>React: ★★★★☆</p>
+          </div>
+        </div>
+
+        <!-- TOTAL USERS PANEL (Referring to the beginning of the chat) -->
+        <div class="comic-container live-stats-panel total-users-panel">
+          <h3>Total Users (Game)</h3>
+          <p class="stat-count">0</p>
+          <p class="dynamic-update-label">FREE / DYNAMIC</p>
+        </div>
+      </aside>
     </div>
   </body>
 </html>
